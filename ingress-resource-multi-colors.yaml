@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+  name: ingress-resource-multi
+  namespace: zmw
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: zawmyowin.ayabank.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-deploy-red
+            port:
+              number: 80
+      - path: /blue
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-deploy-blue
+            port:
+              number: 80
+      - path: /green
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-deploy-green
+            port:
+              number: 80
