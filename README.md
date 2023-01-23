@@ -1,5 +1,6 @@
 # mylab
 deployment
-service
-ingress
-namespace
+  A Deployment provides declarative updates for Pods and ReplicaSets.
+#service
+#ingress
+#namespace
